@@ -6,11 +6,11 @@ This repo contains an API built with Node and Express to simulate the backend fo
 This application utilizes the following technology stack:
 - Postgres Database (via Docker)
 - Node/Express for the application logic
-- Dotenv from npm for managing environment variables
+- Dotenv for managing environment variables
 - Sequelize for database Object Relational Mapping
-- db-migrate from npm for migrations
-- jsonwebtoken from npm for working with JWTs
-- jasmine from npm for testing
+- db-migrate for migrations
+- jsonwebtoken for working with JWTs
+- jasmine for testing
 
 ## Requirements
 The company stakeholders want to create an online storefront to showcase their great product ideas. Users need to be able to browse an index of all products, see the specifics of a single product, and add products to an order that they can view in a cart page. You have been tasked with building the API that will support this application, and your coworker is building the frontend.
@@ -41,7 +41,6 @@ Full requirements can be viewed via the [REQUIREMENTS.md](REQUIREMENTS.md) file.
 
 ### Login
 - POST /login
-
 
 ## Build Steps
 As this application is docker based, a `.env` file is required.  Please ensure that the variables are populated to match your local environment.
