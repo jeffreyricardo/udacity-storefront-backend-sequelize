@@ -42,7 +42,6 @@ export const createProduct = async (req: Request, res: Response) => {
 
 export const updateProduct = async (req: Request, res: Response) => {
     try {
-        console.log(`inside updateproduct: ${req.params.id}, ${req.body.firstname}, ${req.body.lastname}`);
         const product = await Product.update(
             {
                 name: req.body.name,
@@ -88,13 +87,9 @@ export const getProductsByCategory = async (req: Request, res: Response) => {
 
 export const verifyAuthToken = (req: Request, res: Response, next) => {
     try {
-        console.log('inside verifyauthtoken');
         const authorizationHeader = req.headers.authorization;
-        console.log('authorizationHeader: ' + authorizationHeader);
         const token = authorizationHeader.split(' ')[1];
-        console.log('token: ' + token);
         const decoded = jwt.verify(token, process.env.TOKEN_SECRET);
-        console.log('after verify: ' + decoded);
         next();
     } catch (error) {
         res.status(401)

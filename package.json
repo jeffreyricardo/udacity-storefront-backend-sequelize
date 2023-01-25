@@ -5,8 +5,8 @@
   "main": "server.ts",
   "scripts": {
     "start": "node src/server.ts",
-    "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\"",
-    "test": "jasmine-ts",
+    "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./build --onSuccess \"node ./build/server.js\"",
+    "test": "tsc && jasmine",
     "tsc": "tsc"
   },
   "author": "Udacity",
@@ -22,6 +22,7 @@
     "pg": "^8.5.1",
     "sequelize": "^6.28.0",
     "sequelize-auto": "^0.8.8",
+    "supertest": "^6.3.3",
     "typescript": "^4.1.3"
   },
   "devDependencies": {
@@ -30,8 +31,9 @@
     "@types/jasmine": "^3.6.3",
     "@types/jsonwebtoken": "^9.0.1",
     "@types/pg": "^7.14.7",
-    "jasmine": "^3.6.4",
-    "jasmine-spec-reporter": "^6.0.0",
+    "@types/supertest": "^2.0.12",
+    "jasmine": "^3.99.0",
+    "jasmine-spec-reporter": "^7.0.0",
     "jasmine-ts": "^0.3.0",
     "ts-node": "^9.1.1",
     "tsc-watch": "^4.2.9"

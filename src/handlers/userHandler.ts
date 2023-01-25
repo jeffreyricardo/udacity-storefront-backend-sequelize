@@ -28,9 +28,7 @@ export const getUser = async (req: Request, res: Response) => {
 
 export const createUser = async (req: Request, res: Response) => {
     try {
-        console.log(process.env.BCRYPT_PASSWORD);
         const hash = bcrypt.hashSync(req.body.password+process.env.BCRYPT_PASSWORD, 10);
-        console.log(hash);
 
         const user = await User.create({
             firstname: req.body.firstname,
@@ -39,7 +37,6 @@ export const createUser = async (req: Request, res: Response) => {
         });
 
         var token = jwt.sign({user}, process.env.TOKEN_SECRET);
-        console.log(token);
         res.json(token);
     } catch (err) {
         res.status(401);
@@ -50,7 +47,7 @@ export const createUser = async (req: Request, res: Response) => {
 
 export const updateUser = async (req: Request, res: Response) => {
     try {
-        console.log(`inside updateuser: ${req.params.id}, ${req.body.firstname}, ${req.body.lastname}`);
+        //console.log(`inside updateuser: ${req.params.id}, ${req.body.firstname}, ${req.body.lastname}`);
         const user = await User.update(
             {
                 firstname: req.body.firstname,
@@ -89,9 +86,7 @@ export const loginUser = async (req: Request, res: Response) => {
         });
 
         if (user) {
-            console.log('User found.   Comparing password');
             const validPw = await bcrypt.compareSync(req.body.password+process.env.BCRYPT_PASSWORD, user.password);
-            console.log(validPw);
             
             if (validPw) {
                 var token = jwt.sign({user}, process.env.TOKEN_SECRET);
@@ -111,13 +106,9 @@ export const loginUser = async (req: Request, res: Response) => {
 
 export const verifyAuthToken = (req: Request, res: Response, next) => {
     try {
-        console.log('inside verifyauthtoken');
         const authorizationHeader = req.headers.authorization;
-        console.log('authorizationHeader: ' + authorizationHeader);
         const token = authorizationHeader.split(' ')[1];
-        console.log('token: ' + token);
         const decoded = jwt.verify(token, process.env.TOKEN_SECRET);
-        console.log('after verify: ' + decoded);
         next();
     } catch (error) {
         res.status(401)
