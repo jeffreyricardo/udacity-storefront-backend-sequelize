@@ -1,6 +1,8 @@
-//@ts-nocheck
+
 import db from '../db-config';
 import { DataTypes } from "sequelize";
+import Order from './order';
+import Product from './product';
 
 const OrderProduct = db.define('order_products', {
     id: {
@@ -40,5 +42,8 @@ const OrderProduct = db.define('order_products', {
 }, {
     timestamps: true
 });
+
+Order.belongsToMany(Product, { through: {model: 'order_products'}, foreignKey: 'order_id' });
+Product.belongsToMany(Order, { through: {model: 'order_products'}, foreignKey: 'product_id' });
 
 export default OrderProduct;

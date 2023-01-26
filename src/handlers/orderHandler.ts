@@ -4,13 +4,16 @@ import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
 import Order from '../models/order';
 import OrderProduct from '../models/order_product';
+import Product from '../models/product';
 import User from '../models/user';
 
 dotenv.config();
 
 export const getOrders = async (req: Request, res: Response) => {
     try {
-        const order = await Order.findAll();
+        const order = await Order.findAll({
+            include: {model: Product}
+        });
         res.json(order);
     } catch (err) {
         res.status(400);
@@ -20,7 +23,9 @@ export const getOrders = async (req: Request, res: Response) => {
 
 export const getOrder = async (req: Request, res: Response) => {
     try {
-        const order = await Order.findByPk(req.params.id);
+        const order = await Order.findByPk(req.params.id, {
+            include: {model: Product}
+        });
         res.json(order);
     } catch (err) {
         res.status(400);
