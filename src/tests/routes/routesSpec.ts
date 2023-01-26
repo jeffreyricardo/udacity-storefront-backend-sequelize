@@ -190,8 +190,4 @@ describe('Test for API Routes', () => {
 
     });
 
-
-
-//     router.get('/products/category/:id', getProductsByCategory);
-
 });
