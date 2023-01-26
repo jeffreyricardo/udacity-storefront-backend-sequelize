@@ -73,7 +73,11 @@ Application can be run using the following steps:
 ```
 1. docker-compose up
 2. npm install
-3. db-migrate up
-4. npm run build
-5. npm run test
+3. db-migrate --env dev up
+4. npm run start
+```
+
+Unit tests can be executed using the following steps:
+```
+npm run test
 ```
