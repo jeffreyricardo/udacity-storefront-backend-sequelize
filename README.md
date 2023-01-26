@@ -62,11 +62,11 @@ NODE_ENV=test
 POSTGRES_HOST=127.0.0.1
 POSTGRES_DB=storefront
 POSTGRES_DB_TEST=storefront_test
-POSTGRES_USER=storefront_user
-POSTGRES_PASSWORD=password123
+POSTGRES_USER=######
+POSTGRES_PASSWORD=#######
 SALT_ROUNDS=10
-BCRYPT_PASSWORD=uplink-slowest-trio
-TOKEN_SECRET=eard-hairy-gonads
+BCRYPT_PASSWORD=#######
+TOKEN_SECRET=#######
 ```
 
 Application can be run using the following steps:
