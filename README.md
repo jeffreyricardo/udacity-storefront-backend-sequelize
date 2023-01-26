@@ -29,7 +29,7 @@ Full requirements can be viewed via the [REQUIREMENTS.md](REQUIREMENTS.md) file.
 - GET /products
 - GET /products/:id
 - POST /products/create
-- PUT /prouducts/:id
+- PUT /products/:id
 - DELETE /products/:id
 
 ### Orders
