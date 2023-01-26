@@ -46,8 +46,8 @@ export const updateOrder = async (req: Request, res: Response) => {
     try {
         const order = await Order.update(
             {
-                firstname: req.body.firstname,
-                lastname: req.body.lastname,
+                user_id: req.body.user_id,
+                status: req.body.status,
             },
             {
                 returning: true,
@@ -91,6 +91,7 @@ export const addProduct = async (req: Request, res: Response) => {
             res.json(orderProduct);
         } else {
             // Order wasn't found, or the order is already complete/canceled
+            res.status(400);
             res.json('Error adding product to order.  Order may not exist or is no longer in open status.')
         }
     } catch (err) {
@@ -108,7 +109,8 @@ export const getOrdersByUserId = async (req: Request, res: Response) => {
             // Get all of the orders associated with the user  
             const orders = await Order.findAll({
                 where: {
-                    user_id: user.id
+                    user_id: user.id,
+                    status: 'open'
                 }
             });
             res.json(orders);
