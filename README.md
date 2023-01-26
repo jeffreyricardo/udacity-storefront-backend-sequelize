@@ -45,9 +45,23 @@ Full requirements can be viewed via the [REQUIREMENTS.md](REQUIREMENTS.md) file.
 ## Build Steps
 As this application is docker based, a `.env` file is required.  Please ensure that the variables are populated to match your local environment.
 
+---
+
+**NOTE:**
+
+dotenv has been used with the override setting to false.  Environment variables that have already been set on your machine will NOT be overridden with values from your .env file. 
+
+`start` and `watch` scripts found in package.json are explicitly set to use the dev environment `NODE_ENV=dev`.
+
+`test` script found in package.json is explicitly set to use the test environment `NODE_ENV=test`.
+
+---
+
 ```
+NODE_ENV=test
 POSTGRES_HOST=127.0.0.1
 POSTGRES_DB=storefront
+POSTGRES_DB_TEST=storefront_test
 POSTGRES_USER=storefront_user
 POSTGRES_PASSWORD=password123
 SALT_ROUNDS=10
