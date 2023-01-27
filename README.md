@@ -123,3 +123,15 @@ Unit tests can be executed using the following steps:
 ```
 npm run test
 ```
+
+## Tips
+To ensure appropriate usage of the API, it is helpful to prioritize/order creation of data.
+```
+1. Create User
+2. Create (multiple) Products
+3. Create Order
+4. Add Product to Order
+5. Update Order (status = closed)
+6. Attempt to add product to closed order
+```
+
