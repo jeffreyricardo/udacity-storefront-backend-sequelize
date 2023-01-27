@@ -18,6 +18,12 @@ The company stakeholders want to create an online storefront to showcase their g
 Full requirements can be viewed via the [REQUIREMENTS.md](REQUIREMENTS.md) file.  
 
 ## Routes
+API routes are listed below.
+
+Included is a synopsis of the endpoint, as well as the required parameters for the request.  
+
+A [Postman Collection](udacity-storefront-backend.postman_collection.json) is also included for aid in manual testing.
+
 ### Users
 - GET /users
   - Retrieves a list of all users
