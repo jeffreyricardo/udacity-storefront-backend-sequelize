@@ -107,8 +107,9 @@ Application can be run using the following steps:
 ```
 1. docker-compose up
 2. npm install
-3. db-migrate --env dev up
-4. npm run start
+3. npm install -g db-migrate (if not already installed)
+4. db-migrate --env dev up
+5. npm run start
 ```
 
 Unit tests can be executed using the following steps:
