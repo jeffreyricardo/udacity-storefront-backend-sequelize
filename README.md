@@ -89,6 +89,7 @@ As this application is docker based, a `.env` file is required.  Please ensure t
 
 **NOTE:**
 
+> ⚠️
 dotenv has been used with the override setting to false.  Environment variables that have already been set on your machine will NOT be overridden with values from your .env file. 
 
 `start` and `watch` scripts found in package.json are explicitly set to use the dev environment `NODE_ENV=dev`.
