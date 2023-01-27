@@ -20,27 +20,61 @@ Full requirements can be viewed via the [REQUIREMENTS.md](REQUIREMENTS.md) file.
 ## Routes
 ### Users
 - GET /users
+  - Retrieves a list of all users
 - GET /users/:id
+  - Retrieves user by ID
 - POST /users/create
+  - Create a new user
+    - firstname
+    - lastname
+    - password
 - PUT /users/:id
+  - Update user by ID
+    - firstname (optional)
+    - lastname (optional)
+    - password (optional)
 - DELETE /users/:id
+  - Delete user by ID
 
 ### Products
 - GET /products
+  - Retrieves a list of all products
 - GET /products/:id
+  - Retrieves product by ID
 - POST /products/create
+  - Create a new product
+    - name
+    - price
+    - category
 - PUT /products/:id
+  - Update product by ID
+    - name (optional)
+    - price (optional)
+    - category (optional)
 - DELETE /products/:id
+  - Delete product by ID
 
 ### Orders
 - GET /orders
+  - Retrieves a list of all orders
 - GET /orders/:id
+  - Retrieves order by ID
 - POST /orders/create
+  - Create a new order
+    - user_id
+    - status
 - POST /orders/:id/products
+  - Add a product to an order
+    - productid
+    - quantity
 - GET /orders/users/:id
+  - Retrieves OPEN orders by user ID
 
 ### Login
 - POST /login
+  - Returns JWT token
+    - id
+    - password
 
 ## Build Steps
 As this application is docker based, a `.env` file is required.  Please ensure that the variables are populated to match your local environment.
