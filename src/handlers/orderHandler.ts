@@ -116,7 +116,8 @@ export const getOrdersByUserId = async (req: Request, res: Response) => {
                 where: {
                     user_id: user.id,
                     status: 'open'
-                }
+                },
+                include: {model: Product}
             });
             res.json(orders);
         }
