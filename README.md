@@ -87,19 +87,8 @@ As this application is docker based, a `.env` file is required.  Please ensure t
 
 ---
 
-**NOTE:**
-
-> ⚠️
-dotenv has been used with the override setting to false.  Environment variables that have already been set on your machine will NOT be overridden with values from your .env file. 
-
-`start` and `watch` scripts found in package.json are explicitly set to use the dev environment `NODE_ENV=dev`.
-
-`test` script found in package.json is explicitly set to use the test environment `NODE_ENV=test`.
-
----
-
 ```
-NODE_ENV=test
+NODE_ENV=dev
 POSTGRES_HOST=127.0.0.1
 POSTGRES_DB=storefront
 POSTGRES_DB_TEST=storefront_test
@@ -123,7 +112,11 @@ Unit tests can be executed using the following steps:
 ```
 npm run test
 ```
+**NOTE:**
 
+Should the user want to run unit tests in a test environment, `.env` must be updated so that `NODE_ENV=test`.  `package.json` must also be updated to match environment name.
+
+---
 ## Tips
 > 💡 To ensure appropriate usage of the API, it is helpful to prioritize/order creation of data.
 ```
