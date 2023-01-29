@@ -85,9 +85,11 @@ A [Postman Collection](udacity-storefront-backend.postman_collection.json) is al
 ---
 
 ## Data Shapes / Schema
+An ERD can be found [https://github.com/jeffreyricardo/udacity-storefront-backend-sequelize/blob/main/storefront_ERD.png](here).
+
 #### Products
 - id `SERIAL PRIMARY KEY`
-- name `VARCHAR(150) NOT NULL
+- name `VARCHAR(150) NOT NULL`
 - price `DECIMAL(12,2)`
 - category `VARCHAR(64)`
 - createdAt `TIMESTAMP`
@@ -115,6 +117,8 @@ A [Postman Collection](udacity-storefront-backend.postman_collection.json) is al
 - product_id `BIGINT NOT NULL REFERENCES products(id)`
 - createdAt `TIMESTAMP`
 - updatedAt `TIMESTAMP`
+
+
 
 ---
 
