@@ -85,7 +85,7 @@ A [Postman Collection](udacity-storefront-backend.postman_collection.json) is al
 ---
 
 ## Data Shapes / Schema
-An ERD can be found [https://github.com/jeffreyricardo/udacity-storefront-backend-sequelize/blob/main/storefront_ERD.png](here).
+An ERD can be found [here](https://github.com/jeffreyricardo/udacity-storefront-backend-sequelize/blob/main/storefront_ERD.png).
 
 #### Products
 - id `SERIAL PRIMARY KEY`
