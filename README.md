@@ -25,62 +25,98 @@ Included is a synopsis of the endpoint, as well as the required parameters for t
 A [Postman Collection](udacity-storefront-backend.postman_collection.json) is also included for aid in manual testing.
 
 ### Users
-- GET /users
+- Index `/users` [GET]
   - Retrieves a list of all users
-- GET /users/:id
+- Show `/users/:id` [GET]
   - Retrieves user by ID
-- POST /users/create
+- Create `/users/create` [POST]
   - Create a new user
     - firstname
     - lastname
     - password
-- PUT /users/:id
+- Update `/users/:id` [PUT]
   - Update user by ID
     - firstname (optional)
     - lastname (optional)
     - password (optional)
-- DELETE /users/:id
+- Delete `/users/:id` [DELETE]
   - Delete user by ID
 
 ### Products
-- GET /products
+- Index `/products` [GET]
   - Retrieves a list of all products
-- GET /products/:id
+- Show `/products/:id` [GET]
   - Retrieves product by ID
-- POST /products/create
+- Create `/products/create` [POST]
   - Create a new product
     - name
     - price
     - category
-- PUT /products/:id
+- Update `/products/:id` [PUT]
   - Update product by ID
     - name (optional)
     - price (optional)
     - category (optional)
-- DELETE /products/:id
+- Delete `/products/:id` [DELETE]
   - Delete product by ID
 
 ### Orders
-- GET /orders
+- Index `/orders` [GET]
   - Retrieves a list of all orders
-- GET /orders/:id
+- Show `/orders/:id` [GET]
   - Retrieves order by ID
-- POST /orders/create
+- Create `/orders/create` [POST]
   - Create a new order
     - user_id
     - status
-- POST /orders/:id/products
+- Create `/orders/:id/products` [POST]
   - Add a product to an order
     - productid
     - quantity
-- GET /orders/users/:id
+- Index `/orders/users/:id` [GET]
   - Retrieves OPEN orders by user ID
 
 ### Login
-- POST /login
+- Auth `/login` [POST]
   - Returns JWT token
     - id
     - password
+
+---
+
+## Data Shapes / Schema
+#### Products
+- id `SERIAL PRIMARY KEY`
+- name `VARCHAR(150) NOT NULL
+- price `DECIMAL(12,2)`
+- category `VARCHAR(64)`
+- createdAt `TIMESTAMP`
+- updatedAt `TIMESTAMP`
+
+#### Users
+- id `SERIAL PRIMARY KEY` 
+- password `VARCHAR(255) NOT NULL`
+- firstName `VARCHAR(150) NOT NULL`
+- lastName `VARCHAR(150) NOT NULL`
+- createdAt `TIMESTAMP`
+- updatedAt `TIMESTAMP`
+
+#### Orders
+- id `SERIAL PRIMARY KEY`
+- user_id `BIGINT NOT NULL REFERENCES users(id)`
+- status `VARCHAR(64) NOT NULL`
+- createdAt `TIMESTAMP`
+- updatedAt `TIMESTAMP`
+
+#### Order_Products
+- id `SERIAL PRIMARY KEY`
+- quantity `INTEGER NOT NULL`
+- order_id `BIGINT NOT NULL REFERENCES orders(id)`
+- product_id `BIGINT NOT NULL REFERENCES products(id)`
+- createdAt `TIMESTAMP`
+- updatedAt `TIMESTAMP`
+
+---
 
 ## Build Steps
 As this application is docker based, a `.env` file is required.  Please ensure that the variables are populated to match your local environment.
